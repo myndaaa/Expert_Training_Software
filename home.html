@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content= "IE=edge">
+     <meta name= "viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https: //stackpath. bootstrapcdn.com/bootstrap/4-3.1/css/bootstrap.min.css" >
+     <link rel="stylesheet" href="./sty.css" >
+     <script src="script.js"></script>
+    
+     <title>Document</title>
+</head>
+ <body>
+   <div id = "parent">
+    <header>
+    <div class="navigation">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="#!">EXPERT</a>
+      </div>
+      <nav>
+        <div class="nav-mobile">
+          <a id="nav-toggle" href="#!"><span></span></a>
+        </div>
+        <ul class="nav-list">
+          
+          <li><a href="#!">Home</a></li>
+          <li><a href="#!">About</a></li>
+          <li><a href="#!">Services</a>
+          </li>
+          <li><a href="#!">Pricing</a></li>
+          <li><a href="#!">Sign in</a></li>
+          
+        </ul>
+      </nav>
+       
+    </div>
+  </div>
+  </header>
+
+  <div id = "sec2">
+    <div class="container">
+      <div id="slide">
+          <div class="item" style="background-image: url(images/cover.jpg);">
+              <div class="content">
+                  <div class="name">LUNDEV</div>
+                  <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                  <button>See more</button>
+              </div>
+          </div>
+          
+          <div class="item" style="background-image: url(images/cover.jpg);">
+              <div class="content">
+                  <div class="name">LUNDEV</div>
+                  <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                  <button>See more</button>
+              </div>
+            </div>
+          <div class="item" style="background-image: url(images/cover.jpg);">
+              <div class="content">
+                  <div class="name">LUNDEV</div>
+                  <div class="des">Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu</div>
+                  <button>See more</button>
+              </div>
+          </div>
+      </div>
+      <div class="buttons">
+          <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
+          <button id="next"><i class="fa-solid fa-angle-right"></i></button>
+      </div>
+  </div>
+ 
+
+  </div>
+
+
+
+
+
+  <div class ="popup" >
+    <div class= "contentBox">
+      <div class ="cross_button"></div>
+       <div class= "imgbox">
+         <img src="images/butcher.png" alt="Promotion Pic">
+       </div>
+       <div class="announcement">
+         <div class="annun">
+           <h3><span> Venison </span><br>
+           Available Now </h3>
+           <h2>10<sup>%</sup><span>off</span></h2>
+           <p>For the first 20 customers</p>
+           <a href="#!">Get the Deal</a>
+         </div>
+       </div>
+   </div>
+ </div>
+ 
+ <script>
+ 
+ 
+ const popup = document.querySelector('.popup');
+ const close = document.querySelector('.cross_button');
+ 
+ window.onload = function(){
+   setTimeout(function(){
+     popup.style.display="block";
+ 
+ }, 2000)
+ }
+ 
+ close.addEventListener('click', () => {
+ popup.style.display="none";
+ 
+ })
+ 
+ 
+ </script>
+ 
+
+
+
+
+ 
+
+        
+ 
+    
+    
+</div>
+
+<script src="script.js"></script>
+
+
+
+
+
+
+
+  <!--footer-->
+
+<footer>
+
+  <a href="home.html" title="Our Homepage"><h1 class="logo"><span class="kw" translate="no">EXPERT</span></h1></a>
+
+  <div class="details" id="contact_order">
+
+  <div class="footer_menu">
+
+    <ul>
+			<li><strong class="minimenu"><span class="kw" translate="no">CUTLET</span></strong></li>
+			<li><a href="home.html" class="flinks">Home Page</a></li>
+			<li><a href="enquiry.html" class="flinks">Enquiries</a></li>
+			<li><a href="disclaimer.html" class="flinks">Disclaimer</a></li>
+			<li><a href="enhancements.html" class="flinks">Enhancements</a></li>
+		</ul>
+
+		<ul>
+			<li><strong class="minimenu">Products</strong></li>
+			<li><a href="product1(redmeats).html" class="flinks">Red Meats</a></li>
+			<li><a href="product2(bird).html" class="flinks">Bird Meats</a></li>
+			<li><a href="product3(fish).html" class="flinks">Fish</a></li>
+			<li><a href="product4(exotic).html" class="flinks">Exotic Meats</a></li>
+		</ul>
+
+		<ul>
+			<li> <strong class="minimenu">About Us</strong> </li>
+      <li> <a href="aboutme.html" class="flinks">Author's Detail</a><br><br><br></li>
+		</ul>
+
+
+	</div>
+
+  <h2>Contact Us</h2>
+  <!--Contact details, icon download- https://www.flaticon.com/ -->
+  <p><a href="https://www.facebook.com/CutLet-100551645477090" target="_blank"><img src="images/facebook_icon.png" title="Visit Us on Facebook" alt="Our Facebook Link"/></a> &nbsp;
+     <a href="https://wa.me/qr/74LHPZBMWYZ6K1" target="_blank"><img src="images/whatsapp_icon.png" alt="Our whatsapp number" title="Contact Us on Whatsapp"/></a> &nbsp;
+     <a href="mailto:101230484@students.swinburne.edu.my" target="_blank"><img src="images/gmail.png" alt="Our gmail address" height="48" width="44" title="Contact Us via Email" /></a> &nbsp;
+     <a href="https://www.instagram.com/CutLet-100551645477090" target="_blank"><img src="images/instagram_icon.png" alt="Our Instagram Link" title="check Us on Instagram"/></a></p> &nbsp;
+     
+  </div>
+
+<!--Enhancement Google map tab linking referred to Youtube Channel:- "Geek Tutorials" link:- https://www.youtube.com/watch?v=KIC0OK9nKXY -->
+  <div class="mapping" id="maps">
+    <h2>Our Address:</h2>
+    <p>296, Lorong Tabuan Dayak 6, King Centre, 93350, Kuching, Sarawak.</p>
+    <p>Or click below...</p>
+    <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4026724120695!2d110.35643741457282!3d1.5263408988868885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba70d915f6b2f%3A0x4a6fa38ac11b2e5b!2s296%2C%20Lorong%20Tabuan%20Dayak%206%2C%20King%20Centre%2C%2093350%20Kuching%2C%20Sarawak!5e0!3m2!1sen!2smy!4v1617047646830!5m2!1sen!2smy" height="300"  loading="eager" ></iframe></p>
+  </div>
+
+  <div class="main">
+    <div class="content">
+      <h2>Get in Touch</h2>
+      <p>Feel Free to Drop Us a Line Below!</p>
+      <form action="">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea name="" id="" cols="19" rows="4"placeholder="Type Your Message here"></textarea>
+        <input type="submit" value="Send">
+      </form>
+    </div>
+    <div class="sub">
+        <div class="sub-content">
+          <h1>Contact Us</h1>
+  
+          <p><i class="fas fa-map-marker-alt"></i> Enter Your Address</p>
+          <p><i class="fas fa-envelope"></i> enteryour@gmail.com</p>
+          <p><i class="fab fa-skype"></i> skype-id</p>
+          <p><i class="fas fa-mobile-alt"></i> +923157079240</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="scrollbtn">
+    <a href="#"> <i class="fas fa-arrow-up"></i> </a>
+    </div>
+
+
+    
+
+  <script src="script.js"></script>
+   
+    
+   
+</body>
+ </html>
