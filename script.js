@@ -12,16 +12,3 @@ document.getElementById('prev').onclick = function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
