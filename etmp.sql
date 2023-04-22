@@ -1,3 +1,6 @@
+CREATE DATABASE training_portal;
+USE training_portal;
+
 CREATE TABLE employee (
   employeeID INT AUTO_INCREMENT PRIMARY KEY,
   firstName VARCHAR(50) NOT NULL,
@@ -30,10 +33,14 @@ CREATE TABLE customer (
 
 CREATE TABLE workshop (
   workshopID INT AUTO_INCREMENT PRIMARY KEY,
-  prerequisite VARCHAR(255),
-  subject VARCHAR(255),
-  outcome VARCHAR(255),
-  about VARCHAR(255)
+  Title VARCHAR(255) NOT NULL,
+  Sector VARCHAR(255) NOT NULL,
+  Description TEXT NOT NULL,
+  Duration INT NOT NULL,
+  Cost_Per_Person DECIMAL(10, 2) NOT NULL,
+  Format VARCHAR(255) NOT NULL,
+  Instructor VARCHAR(255) NOT NULL
+
 );
 
 CREATE TABLE WorksWith (
