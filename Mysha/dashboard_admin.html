@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="description" content="Basic HTML elements"/>
+		<meta name="keywords" content="HTML5, tags"/>
+		<meta name="author" content="mysha"/>
+		<script src="#"></script>
+		<title>Expert Training Management Portal</title>
+		<link rel="stylesheet" href="styles.css"/>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header-container">
+				<h3>Welcome to Expert Training Management Portal</h3>
+			</div>
+		</div>
+		<div class="sidenav">
+			  <button class="dropdown-btn">Messages 
+				<i class="fa fa-caret-down"></i>
+			  </button>
+			  <div class="dropdown-container">
+				<a href="#">message 1</a>
+				<a href="#">message 1</a>
+				<a href="#">message 1</a>
+			  </div>
+			  <button class="dropdown-btn">Notification 
+				<i class="fa fa-caret-down"></i>
+			  </button>
+			  <div class="dropdown-container">
+				<a href="#">notification 1</a>
+				<a href="#">notification 1</a>
+				<a href="#">notification 1</a>
+			  </div>
+			  
+		</div>
+		<div class="container">
+			<div class = "box">
+				<a href = "">
+					<div class = "little">
+						<h2>Edit Profile</h2>
+					</div>
+				</a>
+			</div>
+			<div class = "box">
+				<a href = "">
+					<div class = "little">
+						<h2>Employee Management</h2>
+					</div>
+				</a>
+			</div>
+			<div class = "box">
+				<a href = "">
+					<div class = "little">
+						<h2>Workshop Management</h2>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		</div>
+		<div class="footer">
+			<p>2023 Expert Sdn. Bhd. All Rights Reserved.</p>
+		</div>
+				<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+	</body>
+
+</html>
