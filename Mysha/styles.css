@@ -1,0 +1,237 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	background-color: #D4DFEF;
+	min-height: 100vh;
+	position: relative;
+}
+
+.header {
+	background-color: #2F455C;
+	color: #fff;
+	text-align: left;
+	padding: 10px 0;
+	margin: 0;
+}
+
+.header-container {
+	margin: 0 auto;
+	padding: 0 30px; 
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0;
+}
+a {
+    text-decoration: none;
+    color: #2F455C;
+}
+
+.box {
+	width: 300px;
+	height: 350px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.left-box {
+	background-color: #ffffff;
+}
+
+.right-box {
+	background-color: #ffffff;
+}
+
+.left-box:hover {
+	background-color: #908eab;
+	transform: scale(1.05);
+}
+
+.right-box:hover {
+	background-color: #908eab;
+	transform: scale(1.05);
+}
+
+h1 {
+	font-size: 28px;
+	font-weight: bold;
+	margin: 0;
+	margin-left: 10px;
+}
+
+h2 {
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.footer {
+	color: #2F455C;
+	text-align: left;
+	padding: 20px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+
+.signup-text {
+  text-align: center;
+  margin-top: 0px;
+  font-size: 13px;
+}
+
+.signup-text a {
+  color: #2F455C;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+label {
+	display: block;
+	text-align: left;
+	margin: 10px 0;
+}
+input[type=text], input[type=password] {
+	width: 80%;
+	padding: 10px;
+	margin: 5px 0 20px 0;
+	border: none;
+	background: #f2f2f2;
+}
+button[type=submit] {
+	background-color: #2F455C;
+	color: #fff;
+	font-size: 15px;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+button[type=submit]:hover {
+	background-color: #6c8cad;
+	color:#ffffff;
+	box-shadow: 0px 0px 10px 0px
+}
+.login-form {
+	margin: auto;
+	margin-top: 5px 0 20px 0;
+	padding: 50px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	width: 300px;
+	text-align: center;
+	
+}
+
+.column {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  height: 300px; 
+  margin-left: 30px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#doraemon {
+	text-align: center;
+	color: #426F9E;
+}
+
+.butt {
+	margin-left: 295px;
+	margin-top: 50px;
+}
+
+
+.card{
+	margin-top: 15px;
+	width:300px;
+	background: #fff;
+	padding:40px;
+	border-radius:center;
+	text-align:center;
+	border-radius: 15px;
+	
+}
+.card img {
+	width: 180px;
+	height: 180px;
+	border-radius:50%;
+	margin-top: 40px;
+	margin-bottom:30px;
+	
+}
+
+#input-file {
+  display: block;
+	width: 150px;
+	background: #2F455C;
+	color:#FFFFFF ;
+	padding: 10px;
+	margin: 3px auto;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;  
+}
+.sidenav {
+  height: 78%;
+  width: 140px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background-color: #636c7a;
+  overflow-x: hidden;
+  padding-top: 20px;
+  margin-top:79px;
+}
+
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #0d1829;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+.dropdown-container {
+  display: none;
+  background-color: #849dbd;
+
+}
+/* Add an active class to the active dropdown button */
+.active {
+  background-color:#1f324a;
+  color: white;
+}

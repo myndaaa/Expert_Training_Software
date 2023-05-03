@@ -6,7 +6,6 @@ CREATE TABLE employee (
   firstName VARCHAR(50) NOT NULL,
   lastName VARCHAR(50) NOT NULL,
   employeeRank VARCHAR(50) NOT NULL,
-  password VARCHAR(255) NOT NULL CHECK(LENGTH(password) >= 8),
   email VARCHAR(255) NOT NULL UNIQUE,
   icNumber CHAR(10) NOT NULL UNIQUE,
   passport VARCHAR(255) NOT NULL UNIQUE,
@@ -15,11 +14,15 @@ CREATE TABLE employee (
   
 );
 
+CREATE TABLE login (
+ username VARCHAR(50) NOT NULL PRIMARY KEY,
+ password VARCHAR(255) NOT NULL CHECK(LENGTH(password) >= 8)
+);
+
 CREATE TABLE customer (
   customerID INT AUTO_INCREMENT PRIMARY KEY,
   firstName VARCHAR(50) NOT NULL,
   lastName VARCHAR(50) NOT NULL,
-  password VARCHAR(255) NOT NULL CHECK(LENGTH(password) >= 8),
   email VARCHAR(255) NOT NULL UNIQUE,
   icNumber CHAR(10) NOT NULL UNIQUE,
   passport VARCHAR(255) NOT NULL UNIQUE,
