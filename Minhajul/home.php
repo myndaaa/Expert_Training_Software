@@ -1,3 +1,6 @@
+
+<!--pop up ad-->
+
 <?php
 $connection = new mysqli('localhost', 'root', '', 'expert-db');
 if ($connection->connect_error) {
@@ -68,6 +71,9 @@ $imageSliderResult = $connection->query('SELECT * FROM imageslider');
     </header>
   </div>
 
+
+  <!-- image slider-->
+
   <div id="sec2">
     <div class="container">
       <div id="slide">
@@ -94,6 +100,8 @@ $imageSliderResult = $connection->query('SELECT * FROM imageslider');
         }
 
         ?>
+
+
         <div class="buttons">
           <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
           <button id="next"><i class="fa-solid fa-angle-right"></i></button>
