@@ -51,11 +51,32 @@
         <form id="paymentForm" action="update_payments.php">
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" required>
-
-
           <label for="cardInfo">Card number:</label>
           <input type="text" id="cardInfo" name="cardInfo" required>
           <span id="cardInfoError" class="error-message">Please enter a valid card information (8-12 digits with no spacing).</span>
+
+          <label for="expiryDate">Expiry Date:</label>
+          <select id="expiryDate" name="expiryDate" required>
+            <option value="">Month</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          <input type="number" id="expiryYear" name="expiryYear" placeholder="Year" required>
+          <span id="expiryError" class="error-message">Please select a valid expiry date.</span>
+
+          <label for="cvc">CVC:</label>
+          <input type="number" id="cvc" name="cvc" required>
+          <span id="cvcError" class="error-message">Please enter a valid cvc number (3-4 digits).</span>
 
           <label for="nameOnCard">Name on Card:</label>
           <input type="text" id="nameOnCard" name="nameOnCard" required>

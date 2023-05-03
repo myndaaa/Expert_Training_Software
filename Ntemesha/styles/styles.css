@@ -105,6 +105,13 @@ nav {
     border-bottom: 1px solid #000;
   }
   
+  
+  #expiryDate, #expiryYear, #cvc {
+    display: inline-block;
+    width: auto;
+    margin-right: 10px;
+  }
+
   .pay-now-button {
     background-color: #000;
     color: #fff;
