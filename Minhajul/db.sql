@@ -1,4 +1,4 @@
-);
+
 
 
 CREATE TABLE imageSlider (
@@ -10,13 +10,6 @@ CREATE TABLE imageSlider (
 );
 
 
-CREATE TABLE popup (
-  `popupID` INT NOT NULL AUTO_INCREMENT,
-  `imagePath` TEXT NOT NULL,
-  `name` VARCHAR(255),
-  `description` TEXT NOT NULL,
-  PRIMARY KEY (`popupID`)
-);
 
 
 CREATE TABLE testimonials (
