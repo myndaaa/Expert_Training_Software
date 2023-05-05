@@ -1,7 +1,4 @@
-
-<!--pop up ad-->
-
-<!-- <?php
+<?php
 $connection = new mysqli('localhost', 'root', '', 'expert-db');
 if ($connection->connect_error) {
   die("Coudn't connnect to database!");
@@ -26,7 +23,7 @@ if ($popupResult->num_rows != 0) {
 $imageSliderResult = $connection->query('SELECT * FROM imageslider');
 
 //die(var_dump($imageSliderResult->fetch_assoc()));
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,10 +35,6 @@ $imageSliderResult = $connection->query('SELECT * FROM imageslider');
   <link rel="stylesheet" href="https: //stackpath. bootstrapcdn.com/bootstrap/4-3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="./sty.css">
   <script src="script.js"></script>
-  <!-- <link rel="stylesheet" href="style.css" /> -->
-  <!-- Boxicons CSS -->
-  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
-  <!--<script src="script.js" defer></script>-->
 
   <title>Document</title>
 </head>
@@ -75,9 +68,6 @@ $imageSliderResult = $connection->query('SELECT * FROM imageslider');
     </header>
   </div>
 
-
-  <!-- image slider-->
-
   <div id="sec2">
     <div class="container">
       <div id="slide">
@@ -104,8 +94,6 @@ $imageSliderResult = $connection->query('SELECT * FROM imageslider');
         }
 
         ?>
-
-
         <div class="buttons">
           <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
           <button id="next"><i class="fa-solid fa-angle-right"></i></button>
@@ -119,7 +107,42 @@ $imageSliderResult = $connection->query('SELECT * FROM imageslider');
 
 
 
-    
+    <div class="popup">
+      <div class="contentBox">
+        <div class="cross_button"></div>
+        <div class="imgbox">
+          <img src="<?php echo $popup[1] ?>" alt="Promotion Pic">
+        </div>
+        <div class="announcement">
+          <div class="annun">
+            <h3><span> <?php echo $popup[2] ?> </span></h3>
+
+
+            <?php echo $popup[3] ?>
+
+
+            <a href="#!">Get the Deal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const popup = document.querySelector('.popup');
+      const close = document.querySelector('.cross_button');
+
+      window.onload = function() {
+        setTimeout(function() {
+          popup.style.display = "block";
+
+        }, 2000)
+      }
+
+      close.addEventListener('click', () => {
+        popup.style.display = "none";
+
+      })
+    </script>
 
 
 
@@ -134,29 +157,6 @@ $imageSliderResult = $connection->query('SELECT * FROM imageslider');
   </div>
 
   <script src="script.js"></script>
-
-
-  
- 
-
-    <!-- <div class="wrapper">
-      <header>
-        <i class="bx bx-cookie"></i>
-        <h2>Cookies Consent</h2>
-      </header>
-
-      <div class="data">
-        <p>This website use cookies to help you have a superior and more relevant browsing experience on the website. <a href="https://www.blogger.com/go/blogspot-cookies"> Read more...</a></p>
-      </div>
-
-      <div class="wrapper_buttons">
-        <button class="wrapper_button" id="acceptBtn">Accept</button>
-        <button class="wrapper_button" id="declineBtn">Decline</button>
-      </div>
-    </div> -->
-
-
-
 
 
 
@@ -182,7 +182,7 @@ $imageSliderResult = $connection->query('SELECT * FROM imageslider');
           <li><strong class="minimenu"><span class="kw" translate="no">EXPERT</span></strong></li>
           <li><a href="home.php" class="flinks">Home Page</a></li>
           <li><a href=#feed class="flinks">FeedBack</a></li>
-          <li><a href="test.php" class="flinks">Testimonials</a></li>
+          <li><a href="test.html" class="flinks">Testimonials</a></li>
         </ul>
 
         <ul>
@@ -237,9 +237,9 @@ $imageSliderResult = $connection->query('SELECT * FROM imageslider');
         </div>
       </div>
 
-      <!-- <div class="scrollbtn">
+      <div class="scrollbtn">
         <a href="#"> <i class="fas fa-arrow-up"></i> </a>
-      </div> -->
+      </div>
 
 
 
