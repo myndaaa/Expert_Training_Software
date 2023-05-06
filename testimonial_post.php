@@ -8,4 +8,3 @@ if ($connection->connect_error) {
 
 $testimonialResult = $connection->query('SELECT * FROM testimonials');
 echo json_encode(mysqli_fetch_all($testimonialResult));
-?>
