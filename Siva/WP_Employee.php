@@ -52,6 +52,10 @@
             color: #2f455c;
             padding-left: 1%;
         }
+            
+            
+            
+       
 
         .line {
             border-top: 2px solid #2f455c;
