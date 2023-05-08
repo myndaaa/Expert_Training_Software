@@ -109,7 +109,6 @@
     </div>
   </div>
   <script src="paymentForm.js"></script>
-  <h1>hiiii</h1>
 
 </body>
 
