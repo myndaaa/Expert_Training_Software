@@ -12,6 +12,7 @@
             justify-content: space-between;
         }
         
+            
         .table-container {
             width: 100%;
             overflow-x: auto;
