@@ -30,39 +30,29 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Create the payments table if it doesn't exist
-$sql = "CREATE TABLE IF NOT EXISTS payments (
-    payment_id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    customer_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    city VARCHAR(255) NOT NULL,
-    payment_amount INT(11) NOT NULL,
-    payment_type VARCHAR(255) NOT NULL,
-    payment_status VARCHAR(255) NOT NULL DEFAULT 'no'
-)";
-if ($conn->query($sql) === TRUE) {
-    echo "Table created successfully";
-} else {
-    echo "Error creating table: " . $conn->error;
-}
-$conn->close();
-
-// Insert data from the payment form into the payments table
+// Insert data into the payments table
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $customerName = $_POST["nameOnCard"];
     $email = $_POST["email"];
     $city = $_POST["city"];
     $paymentAmount = 1000; // Hardcoded payment amount as 1000
-    $paymentType = $_POST["cardInfo"] ? "card" : "cash"; // If card info is present, payment type is "card", otherwise "cash"
+    $paymentType = "Card"; // If card info is present, payment type is "card", otherwise "cash"
     $paymentStatus = "no"; // Default payment status is "no"
+    $cardNumber = $_POST["cardInfo"];
+    $expiryDate = $_POST["expiryYear"] . '-' . $_POST["expiryDate"] . '-01'; // Construct the date string in yyyy-mm-dd format
+    $cvc = $_POST["cvc"];
+    $recipt = "upload";
+    
 
     // Insert data into the payments table
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    $sql = "INSERT INTO payments (customer_name, email, city, payment_amount, payment_type, payment_status) VALUES ('$customerName', '$email', '$city', $paymentAmount, '$paymentType', '$paymentStatus')";
+    $sql = "INSERT INTO payments (customer_name, email, city, payment_amount, payment_type, payment_status, card_info, expiry_date, cvc, name_on_card) VALUES ('$customerName', '$email', '$city', $paymentAmount, '$paymentType', '$paymentStatus', '$cardNumber', '$expiryDate', $cvc, '$customerName')";
+
     if ($conn->query($sql) === TRUE) {
         echo "Data inserted successfully";
     } else {
         echo "Error inserting data: " . $conn->error;
     }
-    $conn->close();
 }
+
+$conn->close();
+?>

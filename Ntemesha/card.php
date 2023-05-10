@@ -48,7 +48,7 @@
     <div class="container">
       <div class="form-wrapper">
         <h1>Payment Form</h1>
-        <form id="paymentForm" action="update_payments.php">
+        <form id="paymentForm" action="update_payments.php" method="post">
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" required>
           <label for="cardInfo">Card number:</label>
