@@ -286,3 +286,84 @@ nav {
 .search_btn:hover {
   background-color: #45a049;
 }
+
+
+
+
+/* processing payment */
+.containerProcessing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 24px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.link {
+  color: blue;
+  text-decoration: underline;
+}
+
+.icon {
+  display: inline-block;
+  width: 240px;
+  height: 180px;
+  margin-bottom: 20px;
+}
+
+.containerTitle {
+  margin-top: 20px;
+}
+
+.containerMessage {
+  margin-top: 10px;
+}
+.containerProcessing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.containerProcessing .icon {
+  margin-bottom: 2em;
+}
+
+.containerProcessing h1 {
+  margin-bottom: 1em;
+}
+
+.containerProcessing .title-container {
+  display: flex;
+  justify-content: center;
+}
+
+.containerProcessing .title {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.containerProcessing .message {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.containerProcessing .link {
+  color: blue;
+  text-decoration: underline;
+}
