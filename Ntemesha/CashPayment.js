@@ -12,6 +12,7 @@ function validateForm() {
     if (previousErrorAlert) {
         previousErrorAlert.remove();
     }
+	
 
     // Validate Name
     if (nameInput.value === "") {
