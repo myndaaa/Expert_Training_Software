@@ -1768,7 +1768,7 @@ body{
     border: none;
     position: fixed;
     inset: auto 0px 0px auto;
-    width: 250px;
+    width: 0px;
     height: 647px;
     max-height: 100%;
     opacity: 1;

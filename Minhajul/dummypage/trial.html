@@ -1,64 +1,41 @@
 <!DOCTYPE html>
-<!-- CodingMaker-->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Animated Testimonial Slider</title>
-    <!--CSS Style-->
-    <link rel="stylesheet" href="trial.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
-  </head>
-  <body>
-    <div class="review_container">
-      <div class="review">
-        <div class="review-text">
-          <div class="user-text active-text">
-            <i class="fas fa-quote-left"></i>
-            <p>
-              I think this platform is great overall, the only reak issue I've been dealing with is that after watching a real or sometimes just a regular video, thefeed resets when exited and I cycle through a lot of the same posts.
-            </p>
-            <span>JOHN RYAN, CEO HUMBLE</span>
-          </div>
-          <div class="user-text">
-            <i class="fas fa-quote-left"></i>
-            <p>
-              I think this platform is great overall, the only reak issue I've been dealing with is that after watching a real or sometimes just a regular video, thefeed resets when exited and I cycle through a lot of the same posts.
-            </p>
-            <span>ELISABETH RYAN, CEO HUMBLE</span>
-          </div>
-          <div class="user-text">
-            <i class="fas fa-quote-left"></i>
-            <p>
-              I think this platform is great overall, the only reak issue I've been dealing with is that after watching a real or sometimes just a regular video, thefeed resets when exited and I cycle through a lot of the same posts.
-            </p>
-            <span>RYAN FLOWER, CEO HUMBLE</span>
-          </div>
-          <div class="user-text">
-            <i class="fas fa-quote-left"></i>
-            <p>
-              I think this platform is great overall, the only reak issue I've been dealing with is that after watching a real or sometimes just a regular video, thefeed resets when exited and I cycle through a lot of the same posts.
-            </p>
-            <span>PARKER RAY, CEO HUMBLE</span>
-          </div>
-          <div class="user-text">
-            <i class="fas fa-quote-left"></i>
-            <p>
-              I think this platform is great overall, the only reak issue I've been dealing with is that after watching a real or sometimes just a regular video, thefeed resets when exited and I cycle through a lot of the same posts.
-            </p>
-            <span>MARRY HUE, CEO HUMBLE</span>
-          </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form - Alert Message</title>
+    <link rel="stylesheet" href="trial.css">
+
+    <!-- font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="feedback_container">
+        <div class="feedback_box">
+            <h3>Get in Touch</h3>
+            <div class="feedback_name">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Name" id="name">
+            </div>
+            <div class="feedback_email">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Email" id="email">
+            </div>
+            <div class="message-box">
+                <textarea id="msg" cols="30" rows="10" placeholder="Message"></textarea>
+            </div>
+            <div class="feedback_button">
+                <button id="send" onclick="message()">Send</button>
+            </div>
+            <div class="message">
+                <div class="success" id="success">Your Message Successfully Sent!</div>
+                <div class="danger" id="danger">Feilds Can't be Empty!</div>
+            </div>
         </div>
-        <div class="review-pic">
-          <img src="https://raw.githubusercontent.com/zouraiz523/Testimonial-Slider-/main/Animated%20Testimonial%20Slider/1.png" class="user-pic active-pic" onclick="showReview()">
-          <img src="https://raw.githubusercontent.com/zouraiz523/Testimonial-Slider-/main/Animated%20Testimonial%20Slider/2.png" class="user-pic" onclick="showReview()">
-          <img src="https://raw.githubusercontent.com/zouraiz523/Testimonial-Slider-/main/Animated%20Testimonial%20Slider/3.png" class="user-pic" onclick="showReview()">
-          <img src="https://raw.githubusercontent.com/zouraiz523/Testimonial-Slider-/main/Animated%20Testimonial%20Slider/1.png" class="user-pic" onclick="showReview()">
-          <img src="https://raw.githubusercontent.com/zouraiz523/Testimonial-Slider-/main/Animated%20Testimonial%20Slider/2.png" class="user-pic" onclick="showReview()">
-        </div>
-      </div>
     </div>
-<script src="trial.js"></script>
-  </body>
+
+
+    <script src="trial.js"></script>
+</body>
 </html>
