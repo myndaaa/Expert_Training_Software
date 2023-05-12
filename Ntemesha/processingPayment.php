@@ -50,7 +50,7 @@
             <h1 class="title">Payment in Progress</h1>
         </div>
         <p class="message">
-            Please check the <a href="Payment_status_page.php" class="link">Payment status page</a> for confirmation that your payment has been successful.
+            Please check the <a href="Payment_status.php" class="link">Payment status page</a> for confirmation that your payment has been successful.
         </p>
     </div>
 </body>
