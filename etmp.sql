@@ -119,3 +119,11 @@ CREATE TABLE message (
   FOREIGN KEY (customerID) REFERENCES customer (customerID),
   FOREIGN KEY (employeeID) REFERENCES employee (employeeID)
 );
+
+
+CREATE TABLE customerReview(
+    feedbackID INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `msg` TEXT NOT NULL
+)
