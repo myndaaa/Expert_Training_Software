@@ -1,0 +1,385 @@
+nav {
+    background-color: #2F455C; /* set the background color to your desired color */
+    padding: 10px;
+    width: 100%; /* set width to 100% to cover the full width of the page */
+    margin-top: 0; /* remove margin from top */
+    margin-left: 0; /* remove margin from left */
+    position: fixed; /* set position to fixed to make the navigation bar stick to the top */
+    top: 0; /* set top to 0 to make the navigation bar touch the top of the page */
+    left: 0; /* set left to 0 to make the navigation bar touch the left edge of the page */
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* add flex display to make the list items align in a row */
+    justify-content: flex-start; /* align list items to the left */
+  }
+  
+  li {
+    margin-right: 10px;
+  }
+  
+  a {
+    color: white; /* set the text color to white */
+    text-decoration: none;
+    font-family: "Segoe UI", Arial, sans-serif; /* set the font to Segoe UI */
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  img {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+
+
+
+  body {
+    background-color: #E2EAFC; /* set the body background color to #E2EAFC */
+    margin: 0; /* remove default margin */
+    padding: 0; /* remove default padding */
+  }
+  
+
+
+  .container-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* set the space between the containers */
+  }
+  
+  .container {
+    background-color: white;
+    border-radius: 50px;
+    padding: 2.5%;
+    width: 30%; /* set the width of the containers */
+    height: 25%;
+  }
+  
+  @media screen and (max-width: 768px) {
+    /* apply mobile styles when the viewport width is 768px or less */
+    .container-wrapper {
+      flex-direction: column; /* stack the containers on top of each other */
+      align-items: center; /* center the containers horizontally */
+    }
+  
+    .container {
+      width: 100%; /* set the width of the containers to 100% on mobile */
+    }
+  }
+
+
+
+
+  .form-wrapper {
+    width: 400px;
+    max-width: 90%; /* Added max-width to ensure form doesn't overflow on smaller screens */
+    text-align: center; /* Center form content horizontally */
+    margin: auto; /* Center form content vertically */
+  }
+
+  
+  
+  h1 {
+    font-weight: bold; /* set font weight of form title to bold */
+  }
+  
+  form {
+    display: grid;
+    gap: 20px;
+  }
+  
+  label {
+    font-weight: bold; /* set font weight of form labels to bold */
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #000;
+  }
+  
+  
+  #expiryDate, #expiryYear, #cvc {
+    display: inline-block;
+    width: auto;
+    margin-right: 10px;
+  }
+
+  .pay-now-button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .cash-option {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  .cash-option2 {
+    color: #000;
+  }
+
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #E2EAFC;
+  }
+  
+  .form-wrapper {
+    background-color: white;
+    border-radius: 90px;
+    padding: 40px;
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .card-option {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* payment table */
+.container_payments {
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .container {
+      width: 95%;
+      margin-top: 0;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 0;
+    }
+  }
+
+ /* search */
+ .search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#searchInput {
+  border-radius: 20px;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  background-color: #E2EAFC;
+}
+
+
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%; /* Add this property */
+}
+
+
+.search_btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto; /* Add margin: 0 auto; to center the button */
+  display: block; /* Add display: block; to center the button */
+  margin-top: 10px; /* Add any additional margin or padding as needed */
+}
+
+.search_btn:hover {
+  background-color: #45a049;
+}
+
+
+
+
+/* processing payment */
+.containerProcessing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 24px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.link {
+  color: blue;
+  text-decoration: underline;
+}
+
+.icon {
+  display: inline-block;
+  width: 240px;
+  height: 180px;
+  margin-bottom: 20px;
+}
+
+.containerTitle {
+  margin-top: 20px;
+}
+
+.containerMessage {
+  margin-top: 10px;
+}
+.containerProcessing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.containerProcessing .icon {
+  margin-bottom: 2em;
+}
+
+.containerProcessing h1 {
+  margin-bottom: 1em;
+}
+
+.containerProcessing .title-container {
+  display: flex;
+  justify-content: center;
+}
+
+.containerProcessing .title {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.containerProcessing .message {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.containerProcessing .link {
+  color: blue;
+  text-decoration: underline;
+}
+
+
+/* chart */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 70vw;
+  margin: auto;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
