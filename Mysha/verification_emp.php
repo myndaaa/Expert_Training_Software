@@ -20,10 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
   $passport = $_POST["passport"];
   $ic = $_POST["ic"];
   $phone = $_POST["phn"];
-  $organization = $_POST["org"];
-  $postalCode = $_POST["postcode"];
-  $street = $_POST["strt"];
-  $city = $_POST["city"];
+  $rank = $_POST["employeeRank"];
+  $address = $_POST["adress"];
+  
   $username_input = $_POST["uname"];
   $password_input = $_POST["password"];
 
@@ -34,12 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
   }
 
   // Insert the data into the "customer" table
-  $sql = "INSERT INTO customer (firstName, lastName, email, passport, icNumber, phone, organization, postalCode, street, city) 
-  VALUES ('$fname', '$lname', '$email', '$passport', '$ic', '$phone', '$organization', '$postalCode', '$street', '$city')";
+  $sql = "INSERT INTO employee (firstName, lastName, employeeRank, email, icNumber, passport, phone, address ) 
+  VALUES ('$fname', '$lname', '$rank','$email' ,'$ic', '$passport','$phone', '$address')";
   if (mysqli_query($conn, $sql)) {
-    $customerID = mysqli_insert_id($conn);
+    $employeeID = mysqli_insert_id($conn);
 // Insert the data into the "login_customer" table
-  $sql = "INSERT INTO login_customer (username, password, customerID, email) VALUES ('$username_input', '$password_input', '$customerID', '$email')";
+  $sql = "INSERT INTO login_employee (username, password, employeeID, email) VALUES ('$username_input', '$password_input', '$employeeID', '$email')";
   if (mysqli_query($conn, $sql)) {
     echo "<script>alert('Registration successful!')</script>";
   } else {
@@ -48,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
   }
 } else {
   $error_message = mysqli_error($conn);
-  echo "<script>alert('Registration failed: $error_message'); window.location.href='signup.php';</script>";
+  echo "<script>alert('Registration failed: $error_message'); window.location.href='newemployee.php?employeeID=" . $employeeID . "';</script>";
+
 }
 
 
@@ -67,6 +67,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 	</head>
 
 	<body>
+		<?php
+		// Establish database connection
+		$conn = mysqli_connect('localhost', 'root', '', 'training_portal');
+
+		// Retrieve employeeID from URL parameter
+		if (isset($_GET['employeeID'])) {
+		    $employeeID = $_GET['employeeID'];
+		} else {
+		    // Redirect to login_employee.php if employeeID is not provided
+		    header("Location: login_employee.php");
+		    exit();
+		}
+
+	?>
 		<div class="header">
 			<div class="header-container">
 				<h3>Welcome to Expert Training Management Portal</h3>
@@ -76,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 		<div class="container">
 			
 			<div class="card">
-				<h2>Return to <a href = "login_customer.php">log in</a> </h2>
+				<h2>Return to <a href = "dashboard_employee.php?employeeID=<?php echo $employeeID; ?>">dashboard</a> </h2>
 			</div>
 			
 			

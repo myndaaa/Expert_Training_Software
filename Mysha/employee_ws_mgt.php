@@ -9,26 +9,26 @@
 	<link rel="stylesheet" href="styles.css"/>
 </head>
 
-<body>
+<body>	
+	
 	<?php
 		// Establish database connection
 		$conn = mysqli_connect('localhost', 'root', '', 'training_portal');
 
 		// Retrieve employeeID from URL parameter
 		if (isset($_GET['employeeID'])) {
-		    $employeeID = $_GET['employeeID'];
-		} else {
-		    // Redirect to login_employee.php if employeeID is not provided
-		    header("Location: login_employee.php");
-		    exit();
+			$employeeID = $_GET['employeeID'];
+
+			// Query workshop_assignment table for rows with the specified employeeID
+			$assignmentQuery = "SELECT * FROM workshop_assignment WHERE employeeID = $employeeID";
+			$assignmentResult = mysqli_query($conn, $assignmentQuery);
+
+			// Query workshop_request table for rows with the same requestID as in workshop_assignment
+			$requestQuery = "SELECT * FROM workshop_request WHERE requestID IN (SELECT requestID FROM workshop_assignment WHERE employeeID = $employeeID)";
+			$requestResult = mysqli_query($conn, $requestQuery);
 		}
-
-		// Query database for employee's information
-		$stmt = mysqli_prepare($conn, "SELECT * FROM workshop");
-		mysqli_stmt_execute($stmt);
-		$result = mysqli_stmt_get_result($stmt);
 	?>
-
+		
 	<div class="header">
 		<div class="header-container">
 			<h3>Welcome to Expert Training Management Portal</h3>
@@ -80,12 +80,12 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Workshop ID</th>
+					<th>Request ID</th>
 					<th>Title</th>
 					<th>Sector</th>
 					<th>Description</th>
 					<th>Duration</th>
-					<th>Cost Per Person</th>
+					<th>Customer ID</th>
 					<th>Format</th>
 					<th>Instructor</th>
 				</tr>
@@ -93,12 +93,12 @@
 			<tbody>
 				<?php while ($row = mysqli_fetch_assoc($result)) { ?>
 					<tr>
-						<td><?php echo $row['workshopID']; ?></td>
+						<td><?php echo $row['requestID']; ?></td>
 						<td><?php echo $row['Title']; ?></td>
 						<td><?php echo $row['Sector']; ?></td>
 						<td><?php echo $row['Description']; ?></td>
 						<td><?php echo $row['Duration']; ?></td>
-						<td><?php echo $row['Cost_Per_Person']; ?></td>
+						<td><?php echo $row['customerID']; ?></td>
 						<td><?php echo $row['Format']; ?></td>
 						<td><?php echo $row['Instructor']; ?></td>
 					</tr>
