@@ -1,3 +1,52 @@
+<?php
+// Connect to the database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "MSP";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch the last row from the table
+$sql = "SELECT * FROM venue ORDER BY id DESC LIMIT 1";
+$result = $conn->query($sql);
+
+// Retrieve the itinerary data from the table
+$sql1 = "SELECT start_time, _Activity FROM itinerary";
+$result1 = $conn->query($sql1);
+
+// Retrieve data from the table
+$sql2 = "SELECT name, age, email, phone FROM attendee";
+$result2 = $conn->query($sql2);
+
+// Retrieve the document data from the table
+$sql3 = "SELECT docname, docfile FROM document";
+$result3 = $conn->query($sql3);
+
+
+
+if ($result->num_rows > 0) {
+  // Store the values in variables
+  $row = $result->fetch_assoc();
+  $name = $row["_Name"];
+  $address1 = $row["Address_L1"];
+  $address2 = $row["Address_L2"];
+  $city = $row["City"];
+  $state = $row["_State"];
+  $postal_code = $row["Postal_Code"];
+  $country = $row["Country"];
+}
+
+
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
     <head>
         <title>Workshop Processing</title>
@@ -12,7 +61,6 @@
             justify-content: space-between;
         }
         
-            
         .table-container {
             width: 100%;
             overflow-x: auto;
@@ -53,10 +101,6 @@
             color: #2f455c;
             padding-left: 1%;
         }
-            
-            
-            
-       
 
         .line {
             border-top: 2px solid #2f455c;
@@ -324,7 +368,7 @@
         <span id="date"></span>
     </div>
     <div class="heading">
-        <h2>Workshop Processing</h2>
+        <h2>Workshop Processing - Employee</h2>
         <div class="line"></div>
     </div>
     <div class="text">
@@ -338,63 +382,58 @@
 
   <div id="attendee" class="tabcontent">
     <h3>Attendee Information</h3>
-    <p><table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>John Doe</td>
-      <td>30</td>
-      <td>johndoe@example.com</td>
-      <td>123-456-7890</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jane Doe</td>
-      <td>25</td>
-      <td>janedoe@example.com</td>
-      <td>123-456-7890</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Bob Smith</td>
-      <td>40</td>
-      <td>bobsmith@example.com</td>
-      <td>123-456-7890</td>
-    </tr>
-  </tbody>
-</table>
-</p>
+    <?php
+// Check if there are any rows returned
+if ($result2->num_rows > 0) {
+  // Start creating the HTML table
+  echo '<table border="1">
+          <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Email</th>
+              <th>Phone</th>
+          </tr>';
+
+  // Output data of each row
+  while ($row2 = $result2->fetch_assoc()) {
+      echo '<tr>
+              <td>' . $row2["name"] . '</td>
+              <td>' . $row2["age"] . '</td>
+              <td>' . $row2["email"] . '</td>
+              <td>' . $row2["phone"] . '</td>
+            </tr>';
+  }
+  echo '</table>';
+} else {
+  echo "No itinerary data found.";
+}
+?>
+<br>
   </div>
 
   <div id="venue" class="tabcontent">
     <h3>Venue Information</h3>
-    <p><div class="venue-info">
-            <ul>
-                <li><strong>Name:</strong> Venue Name</li>
-                <li><strong>Address Line 1:</strong> 123 Main Street</li>
-                <li><strong>Address Line 2:</strong> Suite 100</li>
-                <li><strong>City:</strong> New York</li>
-                <li><strong>State:</strong> NY</li>
-                <li><strong>Postal Code:</strong> 10001</li>
-                <li><strong>Country:</strong> United States</li>
-            </ul>
-    </div></p>
+    <p>
+    <div class="venue-info">
+        <ul>
+            <li><strong>Name:</strong> <?php echo $name; ?></li>
+            <li><strong>Address Line 1:</strong> <?php echo $address1; ?></li>
+            <li><strong>Address Line 2:</strong> <?php echo $address2; ?></li>
+            <li><strong>City:</strong> <?php echo $city; ?></li>
+            <li><strong>State:</strong> <?php echo $state; ?></li>
+            <li><strong>Postal Code:</strong> <?php echo $postal_code; ?></li>
+            <li><strong>Country:</strong> <?php echo $country; ?></li>
+        </ul>
+    </div>
+</p>
+
     <button class="rounded-button" id="VRequest-btn">Request Venue</button>
     <button class="rounded-button" id="VSuggest-btn">Suggest Venue</button>
     <br>
     <br>
 
-    <div class="venue-form">
-        <form>
+    <div class="venue-form" >
+        <form method="post" action="venue-form.php">
             <label for="venue-name">Venue Name:</label>
             <input type="text" id="venue-name" name="venue-name"><br>
 
@@ -424,17 +463,99 @@
   </div>
 
   <div id="itinerary" class="tabcontent">
-    <h3>Itinerary Content</h3>
-    <p>This is the content for the Itinerary tab.</p>
-  </div>
+    <h3>Itinerary Handling</h3>
 
-  <div id="document" class="tabcontent">
-    <h3>Document Upload Content</h3>
-    <p>This is the content for the Document Upload tab.</p>
+        <?php
+    // Check if there are any rows returned
+    if ($result1->num_rows > 0) {
+      // Start creating the HTML table
+      echo '<table border="1">
+              <tr>
+                  <th>Start Time</th>
+                  <th>Activity</th>
+              </tr>';
+
+      // Output data of each row
+      while ($row1 = $result1->fetch_assoc()) {
+          echo '<tr>
+                  <td>' . $row1["start_time"] . '</td>
+                  <td>' . $row1["_Activity"] . '</td>
+                </tr>';
+      }
+
+      echo '</table>';
+    } else {
+      echo "No itinerary data found.";
+    }
+    ?>
+    <br>
+    <h3>Create New Itinerary</h3>
+  <div class="itineraryform">
+    <form method="post" action="itinerary-form.php">
+      <div id="row-container2">
+        <div class="row2">
+          <input type="int" name="id" placeholder="Id" required>
+          <input type="text" name="startTime[]" placeholder="Start Time" required>
+          <input type="text" name="activity[]" placeholder="Activity" required>
+          <button type="button" class="btn remove-row-btn" onclick="removeRow(this)">Remove</button>
+        </div>
+      </div>
+      <div class="form-controls">
+        <button type="button" class="btn" id="add-row-btn2">Add Row</button>
+        <button type="submit" class="btn" id="send-btn1">Send</button>
+      </div>
+    </form>
+    <div class="status"></div>
+  </div>
   </div>
 </div>
 
+  <div id="document" class="tabcontent">
+  <h3>Document Upload</h3>
+  <br>
+  <?php
+  // Check if there are any rows returned
+if ($result3->num_rows > 0) {
+  // Start creating the HTML table
+  echo '<table border="1">
+          <tr>
+              <th>Document Name</th>
+              <th>Download</th>
+          </tr>';
 
+  // Output data of each row
+  while ($row3 = $result3->fetch_assoc()) {
+      echo '<tr>
+              <td>' . $row3["docname"] . '</td>
+              <td><a href="download.php?docname=' . urlencode($row3["docname"]) . '">Download</a></td>
+            </tr>';
+  }
+
+  echo '</table>';
+} else {
+  echo "No document data found.";
+}
+  ?>
+  <br>
+  <div class="documentform">
+    <form method="post" action="document-form.php" enctype="multipart/form-data">
+      <div id="row-container3">
+        <div class="row3">
+          <input type="text" name="docName[]" placeholder="Document Name" required>
+          <input type="file" name="docFile[]" placeholder="Document File" required>
+          <button type="button" class="btn remove-row-btn" onclick="removeRow(this)">Remove</button>
+        </div>
+      </div>
+      <div class="form-controls">
+        <button type="button" class="btn" id="add-row-btn3">Add Row</button>
+        <button type="submit" class="btn" id="send-btn1">Send</button>
+      </div>
+    </form>
+    <div class="status"></div>
+  </div>
+  <p></p>
+  </div>
+</div>
 
 
 
@@ -479,8 +600,84 @@ function goBack() {
   venueForm.style.display = 'none';
 }
 
+
+
+
+
+document.addEventListener("click", function(event) {
+    if (event.target.classList.contains("remove-row-btn")) {
+        var row = event.target.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+});
+
+
+ 
+ // Add itinerary Row button functionality
+ document.getElementById("add-row-btn2").addEventListener("click", function() {
+    var rowContainer = document.getElementById("row-container2");
+    var newRow = document.createElement("div");
+    newRow.className = "row2";
+    newRow.innerHTML = `
+      <input type="int" name="id" placeholder="Id" required>
+      <input type="text" name="startTime[]" placeholder="Start Time" required>
+      <input type="text" name="activity[]" placeholder="Activity" required>
+      <button type="button" class="btn remove-row-btn" onclick="removeRow(this)">Remove</button>
+    `;
+    rowContainer.appendChild(newRow);
+  });
+
+  // Add docuement Row button functionality
+  document.getElementById("add-row-btn3").addEventListener("click", function() {
+    var rowContainer = document.getElementById("row-container3");
+    var newRow = document.createElement("div");
+    newRow.className = "row3";
+    newRow.innerHTML = `
+      <input type="text" name="docName[]" placeholder="Document Name" required>
+      <input type="file" name="docFile[]" placeholder="Document File" required>
+      <button type="button" class="btn remove-row-btn" onclick="removeRow(this)">Remove</button>
+    `;
+    rowContainer.appendChild(newRow);
+  });
+
+
+  // JavaScript code
+document.addEventListener("DOMContentLoaded", function() {
+  // Get the "Add Row" button element
+  var addRowBtn = document.querySelector(".add-row-btn5");
+
+  // Add event listener to the button
+  addRowBtn.addEventListener("click", function() {
+    var rowContainer = document.querySelector("#row-container5");
+    var newRow = document.createElement("div");
+    newRow.className = "row5";
+    newRow.innerHTML = `
+      <input type="text" name="name[]" placeholder="Name" required>
+      <input type="number" name="age[]" placeholder="Age" required>
+      <input type="email" name="email[]" placeholder="Email" required>
+      <input type="text" name="phone[]" placeholder="Phone" required>
+      <button type="button" class="remove-row-btn" onclick="removeRow(this)">Remove</button>
+    `;
+    rowContainer.appendChild(newRow);
+  });
+});
+
+
+
+
+
+
+
+
+ 
+
+  // Remove Row button functionality
+  function removeRow(button) {
+    var row = button.parentNode;
+    row.parentNode.removeChild(row);
+  }
 </script>
 
-
-    </body>
+  </body>
 </html>
+
