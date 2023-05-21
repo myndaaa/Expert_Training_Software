@@ -120,3 +120,5 @@ CREATE TABLE message (
   FOREIGN KEY (customerID) REFERENCES customer (customerID),
   FOREIGN KEY (employeeID) REFERENCES employee (employeeID)
 );
+
+
