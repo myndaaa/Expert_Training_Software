@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['email'])  && !empty($_POST['email']) && isset($_POST['name'])  && !empty($_POST['name']) && isset($_POST['msg'])  && !empty($_POST['msg'])) {
-    $connection = new mysqli('localhost', 'root', '', 'expert-db');
+    $connection = new mysqli('localhost', 'root', '', 'training_portal');
     $stmt = $connection->prepare("INSERT INTO customerReview (`name`, `email`, `msg`) VALUES(?,?,?)");
     //die($connection->error);
     $name = addslashes($_POST['name']);

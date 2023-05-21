@@ -120,5 +120,23 @@ CREATE TABLE message (
   FOREIGN KEY (customerID) REFERENCES customer (customerID),
   FOREIGN KEY (employeeID) REFERENCES employee (employeeID)
 );
+CREATE TABLE workshop_request (
+    requestID INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(255) NOT NULL,
+    Sector VARCHAR(255) NOT NULL,
+    Description TEXT NOT NULL,
+    Duration INT NOT NULL,
+    Format VARCHAR(255) NOT NULL,
+    InstructorType VARCHAR(255) NOT NULL,
+    customerID INT,
+    FOREIGN KEY (customerID) REFERENCES customer(customerID)
+);
 
+ CREATE TABLE workshop_assignment (
+  serial_no INT AUTO_INCREMENT PRIMARY KEY,
+  employeeID INT,
+  requestID INT,
+  FOREIGN KEY (employeeID) REFERENCES employee(employeeID),
+  FOREIGN KEY (requestID) REFERENCES workshop_request(requestID)
+);
 
