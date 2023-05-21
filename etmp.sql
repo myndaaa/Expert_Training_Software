@@ -11,12 +11,22 @@ CREATE TABLE employee (
   passport VARCHAR(255) NOT NULL UNIQUE,
   phone CHAR(10) NOT NULL UNIQUE,
   address VARCHAR(255) NOT NULL
-  
 );
 
-CREATE TABLE login (
+CREATE TABLE login_customer (
  username VARCHAR(50) NOT NULL PRIMARY KEY,
- password VARCHAR(255) NOT NULL CHECK(LENGTH(password) >= 8)
+ password VARCHAR(255) NOT NULL CHECK(LENGTH(password) >= 8),
+ email VARCHAR(255) NOT NULL UNIQUE,
+ customerID INT NOT NULL,
+ FOREIGN KEY (customerID) REFERENCES customer (customerID)
+);
+
+CREATE TABLE login_employee (
+ username VARCHAR(50) NOT NULL PRIMARY KEY,
+ password VARCHAR(255) NOT NULL CHECK(LENGTH(password) >= 8),
+ email VARCHAR(255) NOT NULL UNIQUE,
+ employeeID INT NOT NULL,
+ FOREIGN KEY (employeeID) REFERENCES employee (employeeID)
 );
 
 CREATE TABLE customer (
@@ -31,7 +41,6 @@ CREATE TABLE customer (
   postalCode CHAR(5) NOT NULL,
   street VARCHAR(255) NOT NULL,
   city VARCHAR(255) NOT NULL
-  
 );
 
 CREATE TABLE workshop (
@@ -43,7 +52,6 @@ CREATE TABLE workshop (
   Cost_Per_Person DECIMAL(10, 2) NOT NULL,
   Format VARCHAR(255) NOT NULL,
   Instructor VARCHAR(255) NOT NULL
-
 );
 
 CREATE TABLE WorksWith (
@@ -78,15 +86,8 @@ CREATE TABLE payment (
   FOREIGN KEY (TrainingID) REFERENCES training (TrainingID)
 );
 
-CREATE TABLE feedback (
-  feedbackID INT AUTO_INCREMENT PRIMARY KEY,
-  employeeID INT,
-  status VARCHAR(50),
-  date DATE,
-  phone CHAR(10),
-  email VARCHAR(255),
-  FOREIGN KEY (employeeID) REFERENCES employee (employeeID)
-);
+
+
 
 CREATE TABLE notification (
   NotificationID INT AUTO_INCREMENT PRIMARY KEY,
@@ -119,3 +120,23 @@ CREATE TABLE message (
   FOREIGN KEY (customerID) REFERENCES customer (customerID),
   FOREIGN KEY (employeeID) REFERENCES employee (employeeID)
 );
+CREATE TABLE workshop_request (
+    requestID INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(255) NOT NULL,
+    Sector VARCHAR(255) NOT NULL,
+    Description TEXT NOT NULL,
+    Duration INT NOT NULL,
+    Format VARCHAR(255) NOT NULL,
+    InstructorType VARCHAR(255) NOT NULL,
+    customerID INT,
+    FOREIGN KEY (customerID) REFERENCES customer(customerID)
+);
+
+ CREATE TABLE workshop_assignment (
+  serial_no INT AUTO_INCREMENT PRIMARY KEY,
+  employeeID INT,
+  requestID INT,
+  FOREIGN KEY (employeeID) REFERENCES employee(employeeID),
+  FOREIGN KEY (requestID) REFERENCES workshop_request(requestID)
+);
+

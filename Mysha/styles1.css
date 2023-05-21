@@ -1,0 +1,112 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	background-color: #D4DFEF;
+	min-height: 100vh;
+	position: relative;
+}
+
+.header {
+	background-color: #2F455C;
+	color: #fff;
+	text-align: left;
+	padding: 10px 0;
+	margin: 0;
+}
+
+.header-container {
+	margin: 0 auto;
+	padding: 0 30px; 
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0;
+}
+h1 {
+	font-size: 28px;
+	font-weight: bold;
+	margin: 0;
+	margin-left: 10px;
+}
+
+h2 {
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.footer {
+	color: #2F455C;
+	text-align: left;
+	padding: 20px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.logout-btn {
+  background-color: #2F455C;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.logout-btn:hover {
+    background-color: #d32f2f;
+}
+.customer-info {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+  }
+  .field {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .field label {
+    font-weight: bold;
+    margin-right: 10px;
+    width: 120px;
+  }
+  .field span {
+    margin-right: 10px;
+  }
+  .edit-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .edit-field {
+    display: inline-block;
+    width: 200px;
+  }
+  .save-btn {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
